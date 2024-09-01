@@ -616,7 +616,7 @@ export default async function Stake() {
           </div>
 
           <div className="flex justify-between px-2 text-gray-800 mt-4">
-            <div className="">Today's Yeild:</div>
+            <div className="">Today{"'"}s Yeild:</div>
             <div className="">
               {parseFloat(
                 String((data.rate / 100 / data.duration) * data.amount)
