@@ -25,8 +25,6 @@ export default async function AdminMain() {
 
     const depositsAmount = deposits.reduce((acc, coins) => acc + coins.amount, 0)
     const WithdrawalsAmount = deposits.reduce((acc, coins) => acc + coins.amount, 0)
-
-    console.log(UserCount)
     return <>
         <div className="grid md:grid-cols-4 md:gap-5 gap-2 grid-cols-2">
             <div className="w-full h-32 bg-gradient-to-r from-gray-800 to-gray-950 rounded  flex flex-col justify-center items-center text-white">

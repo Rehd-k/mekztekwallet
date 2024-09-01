@@ -13,7 +13,7 @@ export default function Logout() {
   }
   return (
     <>
-      <div className="flex justify-between pt-5 bg-gray-950">
+      <div className="flex justify-between pt-5 bg-gray-950 w-full">
         <button>
           <RiMenu2Fill />
         </button>

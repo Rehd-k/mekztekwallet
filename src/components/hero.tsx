@@ -68,14 +68,14 @@ export default function Hero({ coinsThem }: any) {
         </div>
       </Link>
 
-      <div className="text-white">
+      <Link className="text-white" href={"/main/stake"}>
         <div className="md:w-14 md:h-14 h-10 w-10 rounded-md flex justify-center items-center bg-gradient-to-t from-blue-600 to-blue-700 mx-auto">
           <FiLink />
         </div>
         <div className="mt-3 text-white font-bold text-center text-xs md:text-sm">
-          Link Wallet
+          Stake
         </div>
-      </div>
+      </Link>
 
       <Modal
         isOpen={modalIsOpen}

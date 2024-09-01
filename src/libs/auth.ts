@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
                     email: credentials.email
                 });
 
-                console.log(credentials.password, Newuser?.password)
+                console.log(credentials.password, Newuser)
                 if (!Newuser || credentials.password !== Newuser.password) {
                     return null;
                 }
