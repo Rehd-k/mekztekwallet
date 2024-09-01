@@ -2,7 +2,6 @@ import CoinCard from "@/components/coincard";
 import { authOptions } from "@/libs/auth";
 import dbConnect from "@/libs/dbConnect";
 import User from "@/model/user";
-import axios from "axios";
 import { getServerSession } from "next-auth";
 import Logout from "../../../components/logout";
 import Hero from "@/components/hero";

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const stakeSchema = new mongoose.Schema({
-  coin: String,
+  name : String,
   amount: Number,
   rate: Number,
   duration: Number,

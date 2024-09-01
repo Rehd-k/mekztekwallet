@@ -5,6 +5,7 @@ import StateHolder from "./stakeholder";
 import { useEffect, useState } from "react";
 
 interface StateInterface {
+  name: String;
   _id: String;
   coin: String;
   amount: number;
@@ -16,7 +17,7 @@ export default function MainHolder() {
   const createStake = async (e: any) => {
     e.preventDefault();
     const formData = {
-      stake: e.target["stake"].value,
+      name: e.target["stake"].value,
       amount: e.target["amount"].value,
       rate: e.target["rate"].value,
       duration: e.target["duration"].value,

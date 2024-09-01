@@ -6,6 +6,7 @@ import User from "@/model/user";
 import stake from "@/model/stake";
 
 interface StateInterface {
+  name : String;
   _id: String;
   coin: String;
   amount: number;
@@ -33,16 +34,18 @@ export default async function StakeCoin({
         <div className="w-32 h-32 rounded-full bg-gray-100 shadow flex justify-center items-center mx-auto">
           {parseFloat(userInfo.balance[params.short].toFixed(10))}{" "}
           {params.short}
-        </div>
+        </div> 
 
         <div className="text-center font-thin text-3xl mt-5">Select Plan</div>
 
-        <div className="grid md:grid-cols-3 md:px-4 px-2 mt-5">
+        <div className="grid md:grid-cols-3 md:px-4 px-2 mt-5 gap-5">
           {stakes.map((res, index) => (
             <div key={index}>
               <PlanHolder
                 dataString={JSON.stringify(res)}
                 balance={userInfo.balance[params.short]}
+                short={params.short}
+                Userresponce={Userresponce}
               />
             </div>
           ))}

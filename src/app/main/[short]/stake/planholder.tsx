@@ -1,26 +1,36 @@
 "use client";
 
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 interface StateInterface {
+  name: String;
   _id: String;
   coin: String;
   amount: number;
   rate: number;
   duration: number;
+  createdOn: string;
 }
 
 export default function PlanHolder({
   dataString,
   balance,
+  short,
+  Userresponce,
 }: {
   dataString: string;
   balance: number;
+  short: string;
+  Userresponce: any;
 }) {
   const [hide, setHide] = useState("opacity-0");
   const [amount, setAmount] = useState(0);
   const [data] = useState<StateInterface>(JSON.parse(dataString));
   const [isDiabled, setDisabled] = useState(false);
+  const router = useRouter();
 
   function handleSelect() {
     if (hide === "opacity-0") {
@@ -37,7 +47,6 @@ export default function PlanHolder({
 
   useEffect(() => {
     function handleDisabled() {
-      console.log(amount, balance);
       if (balance) {
         if (amount <= 0 || amount > balance) {
           setDisabled(true);
@@ -50,10 +59,34 @@ export default function PlanHolder({
     }
     handleDisabled();
   }, [amount, balance]);
+
+  async function handleStake() {
+    const date = new Date(data.createdOn)
+    const dateEnd = date.setDate(date.getDate() + data.duration)
+    const stake = {
+      name: data.name,
+      coin: short,
+      amount,
+      rate: data.rate,
+      duration: data.duration,
+      user: Userresponce.user.id,
+      completedOn: new Date(dateEnd),
+    };
+    toast("loading");
+    try {
+      await axios.post(`/main/${short}/stake/api`, stake);
+      toast("Success", { type: "success" });
+      setTimeout(() => {
+        router.replace("/main/assetpage");
+      }, 2000);
+    } catch (err: any) {
+      toast(JSON.stringify(err.message));
+    }
+  }
   return (
     <div className="w-full rounded-xl shadow pb-4">
       <div className="h-8 flex justify-center items-center text-white font-semibold bg-gradient-to-tr from-gray-700 to-gray-900 rounded-t-xl">
-        Plan Name
+        {data.name}
       </div>
       <div className="text-center flex justify-center mt-5">
         <div className="font-thin text-4xl">{data.rate}%</div>
@@ -75,7 +108,7 @@ export default function PlanHolder({
         <input
           type="number"
           min={balance}
-          className="active:border-none px-2 bg-gray-50 shadow rounded border-none "
+          className="focus:border-none active:border-none px-2 bg-gray-50 rounded border border-gray-300"
           onChange={handleSetAmount}
         />
       </div>
@@ -85,7 +118,7 @@ export default function PlanHolder({
       >
         <div className="">Total Yeiled:</div>
         <div className="">
-          {amount * 0.18} {"BTC"}
+          {amount * (data.rate / 100)} {short}
         </div>
       </div>
 
@@ -99,11 +132,13 @@ export default function PlanHolder({
       ) : (
         <button
           disabled={isDiabled}
+          onClick={handleStake}
           className="mx-auto w-10/12 h-10 rounded-xl flex justify-center items-center bg-gray-800 active:bg-gray-900 disabled:bg-gray-400 text-gray-50 mt-5"
         >
           Lock In
         </button>
       )}
+      <ToastContainer />
     </div>
   );
 }

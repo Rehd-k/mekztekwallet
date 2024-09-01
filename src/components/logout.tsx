@@ -15,7 +15,7 @@ export default function Logout() {
     <>
       <div className="flex justify-between pt-5 bg-gray-950 w-full">
         <button>
-          <RiMenu2Fill />
+        
         </button>
 
         <div className="text-xl text-white flex">

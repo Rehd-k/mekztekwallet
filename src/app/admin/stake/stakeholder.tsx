@@ -6,6 +6,7 @@ import { BiEdit } from "react-icons/bi";
 import { FiDelete } from "react-icons/fi";
 
 interface StateInterface {
+  name: String;
   _id: String;
   coin: String;
   amount: number;
@@ -34,7 +35,7 @@ export default function StateHolder({
     <div className="w-full rounded-xl shadow pb-5">
       <div className="h-10 bg-blue-700 flex justify-center items-center rounded-t-xl text-gray-100 px-2">
         <BiEdit type="button" className="mr-auto cursor-pointer" />
-        Stake Name
+        {stake.name}
         <FiDelete
           type="button"
           className="ml-auto cursor-pointer"
