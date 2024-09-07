@@ -79,7 +79,7 @@ const UserSchema = new mongoose.Schema({
     history: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'History'
         }
     ],
     createdOn: {
