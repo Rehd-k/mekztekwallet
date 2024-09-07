@@ -1,79 +1,86 @@
 const wallets = [
     {
         coin: 'ADA',
-        wallet_address: 'addr1q8v5dfw5a0zxk9xlc3dtnm2ualydgxh7shqe3xcqn2x955pd45wen5cr623xc3hprdxugv9se4q8qa0dgdhvjqljxurqpc2v02',
-        wallet_address_small: 'addr1q8v5dfw5a0zxk9xlc3dtnm2 ualydgxh7shqe3xcqn2x955pd45wen5 cr623xc3hprdxugv9se4q8qa0dgdhv jqljxurqpc2v02'
+        wallet_address: 'addr1qyhjty336xp8t9axhadh0furqhujfdtmfmlqmdg0d3m0m3s0zacn7rgqmv9zm6dhxhnsmfulp2duqwgc5ndtn5fqux6q2rnsxj',
+        wallet_address_small: 'addr1qyhjty336xp8t9axhadh0furqhuj fdtmfmlqmdg0d3m0m3s0zacn7rgqmv9zm6dhxhnsmfulp2duqwgc 5ndtn5fqux6q2rnsxj'
     },
     {
         coin: 'ETH',
-        wallet_address: '0xE4126F69a84653ec8773b65c239364E11B8DBc37',
-        wallet_address_small: '0xE4126F69a84653ec8773b65c239 364E11B8DBc37'
+        wallet_address: '0xfE4B7280C94ceE152E0cce9C4df2902f6Ccff500',
+        wallet_address_small: '0xfE4B7280C94ceE152E0cce 9C4df2902f6Ccff500'
     },
     {
         coin: 'BTC',
-        wallet_address: 'bc1q48tlkca08sg4kw2k9hcdpjhl7hvqfwjlrz267c',
-        wallet_address_small: 'bc1q48tlkca08sg4kw2k9hcdpjhl7 hvqfwjlrz267c'
+        wallet_address: 'bc1qvay6dluc97see5phac567pymuqp6swcpu0alxs',
+        wallet_address_small: 'bc1qvay6dluc97see5phac567 pymuqp6swcpu0alxs'
     },
     {
         coin: 'BNB',
-        wallet_address: 'bnb1zffeg2m5jr4zscmjjrxc900u5h74u34cuqtdac',
-        wallet_address_small: 'bnb1zffeg2m5jr4zscmjjrxc900u 5h74u34cuqtdac',
+        wallet_address: '0xfE4B7280C94ceE152E0cce9C4df2902f6Ccff500',
+        wallet_address_small: '0xfE4B7280C94ceE152E0cce9 C4df2902f6Ccff500',
     },
     {
         coin: 'DODGE',
-        wallet_address: 'DJZQPHHh9V5EJYepFxR5MjjXiRNkJ9ni3u',
-        wallet_address_small: 'DJZQPHHh9V5EJYepFxR5MjjX iRNkJ9ni3u'
+        wallet_address: 'DBChypjJEAdFeyA3q9d1ekLchKuGyn4aw6',
+        wallet_address_small: 'DBChypjJEAdFeyA 3q9d1ekLchKuGyn4aw6'
     },
     {
         coin : 'XRP',
-        wallet_address: 'rrp1RT26aBBjn1x4AxUsdhbp9r3BV1io8G',
-        wallet_address_small: 'rrp1RT26aBBjn1x4Ax Usdhbp9r3BV1io8G'
+        wallet_address: 'rPCgfwgpA695KPu9fnV4ndWogtxxTeNYby',
+        wallet_address_small: 'rPCgfwgpA695KPu9fnV4 ndWogtxxTeNYby'
     },
     {
         coin : 'LTC',
-        wallet_address: 'ltc1ql4aq2qn8evhnhzdn76tje7lng0ytx38s2ayc6f',
-        wallet_address_small : 'ltc1ql4aq2qn8evhnhz dn76tje7lng0ytx38s2ayc6f'
+        wallet_address: 'ltc1qet3kae7yelckkmm0nng63f0aj8fng5780yc4n3',
+        wallet_address_small : 'ltc1qet3kae7yelckkm m0nng63f0aj8fng5780yc4n3'
     },
     {
         coin : 'TRC',
-        wallet_address: 'TXNPPDgpzKJZA4fsBZBTZDqCHTKv8dAaaE',
-        wallet_address_small : 'TXNPPDgpzKJZA4fsBZ BTZDqCHTKv8dAaaE'
+        wallet_address: 'TCBEiwJPtmjimYQDfuUtbamMnG65GpQXrm',
+        wallet_address_small : 'TCBEiwJPtmjimYQDf uUtbamMnG65GpQXrm'
     },
     {
         coin : 'SHIB',
-        wallet_address: '0xE4126F69a84653ec8773b65c239364E11B8DBc37',
-        wallet_address_small : '0xE4126F69a84653ec8773 b65c239364E11B8DBc37'
+        wallet_address: '0xfE4B7280C94ceE152E0cce9C4df2902f6Ccff500',
+        wallet_address_small : '0xfE4B7280C94ceE152E0 cce9C4df2902f6Ccff500'
     },
     {
         coin : 'MATIC',
-        wallet_address: '0xE4126F69a84653ec8773b65c239364E11B8DBc37',
-        wallet_address_small : '0xE4126F69a84653ec8773 b65c239364E11B8DBc37'
+        wallet_address: '0xfE4B7280C94ceE152E0cce9C4df2902f6Ccff500',
+        wallet_address_small : '0xfE4B7280C94ceE152E0c ce9C4df2902f6Ccff500'
     },
     {
         coin : 'FTM',
-        wallet_address: '0xE4126F69a84653ec8773b65c239364E11B8DBc37',
-        wallet_address_small : '0xE4126F69a84653ec8773 b65c239364E11B8DBc37'
+        wallet_address: '0xfE4B7280C94ceE152E0cce9C4df2902f6Ccff500',
+        wallet_address_small : '0xfE4B7280C94ceE152E0c ce9C4df2902f6Ccff500'
     },
     {
         coin : 'XLM',
-        wallet_address: 'GB37AS4RX5WQGENZ5IOHZJWLCF34PBD6J2ZPUB2HC3CQ3ZOUJTG7I43Q',
-        wallet_address_small : 'GB37AS4RX5WQGENZ5IOHZJWLCF3 4PBD6J2ZPUB2HC3CQ3ZOUJTG7I43Q'
+        wallet_address: 'GD56WJ4NWGF6AHQJMYO5SONI3GLWA2THITTC2VGAUNR4AUC47FPJXH3Z',
+        wallet_address_small : 'GD56WJ4NWGF6AHQJMYO5SONI3GLWA2THI TTC2VGAUNR4AUC47FPJXH3Z'
     },
     {
         coin : 'ALGO',
-        wallet_address: '7YLW5Q4VCAVISU7OK3P4BX7I7QNOOEXCK37FUUDOPHLKCRPERSYDVVV7QE',
-        wallet_address_small : '7YLW5Q4VCAVISU7OK3P4BX7I7QNOO EXCK37FUUDOPHLKCRPERSYDVVV7QE'
-    },
-    {
-        coin : 'PEPE',
-        wallet_address: '0xE4126F69a84653ec8773b65c239364E11B8DBc37',
-        wallet_address_small : '0xE4126F69a84653ec87 73b65c239364E11B8DBc37'
+        wallet_address: 'TL2KDIPWEIVUXTFHDP2RGNAB23RLQ4LPT4MR2N7DL3UMIOOCWNQUYTVFZ4',
+        wallet_address_small : 'TL2KDIPWEIVUXTFHDP2RGNAB23RL Q4LPT4MR2N7DL3UMIOOCWNQUYTVFZ4'
     },
     {
         coin : 'SOL',
-        wallet_address: 'HQfsVsn2dL2K25wem73UMJUrcXAGXtfffJCxeyY1zjUW',
-        wallet_address_small : 'HQfsVsn2dL2K25wem73UM JUrcXAGXtfffJCxeyY1zjUW'
+        wallet_address: 'Dse7MgopoghJc3GsMf1GSNtPrpyXToErdAXoVqpgaUD8',
+        wallet_address_small : 'Dse7MgopoghJc3GsMf1GSNt PrpyXToErdAXoVqpgaUD8'
+    },
+    {
+        coin : 'Luna',
+        wallet_address: 'terra1r6ls0wdfchx9mqkn3f4x2vzqdcm5djvycur5uq',
+        wallet_address_small : 'terra1r6ls0wdfchx9mqkn3 f4x2vzqdcm5djvycur5uq'
+    },
+    {
+        coin : 'Luna',
+        wallet_address: 'xdc393a7b8396c5dc9fc05e3eac3beedc4ef4a1afb0',
+        wallet_address_small : 'xdc393a7b8396c5dc9fc05 e3eac3beedc4ef4a1afb0'
     }
+
+    
 ]
 
 

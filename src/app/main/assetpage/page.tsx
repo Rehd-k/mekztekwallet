@@ -309,11 +309,11 @@ async function AssetPage() {
   //     const baseUrl = "https://rest.coinapi.io/v1/";
   //     const endpointPath = "assets";
   //     const filter_symbol_id =
-  //       "BTC;ETH;XLM;XRP;USDT;BNB;ADA;DOGE;LTC;SHIB;MATIC;FTM;ALGO;PEPE;SOL";
+  //       "BTC;ETH;XLM;XRP;USDT;BNB;ADA;DOGE;LTC;SHIB;MATIC;FTM;ALGO;XDC;SOL;LUNA";
   //     const limit = 10;
   //     const headers = {
   //       "X-CoinAPI-Key": apiKey,
-  //     };
+  //     };s
   //     const responce = await axios.get(
   //       `${baseUrl}${endpointPath}?filter_asset_id=${filter_symbol_id}&limit=${limit}`,
   //       {
@@ -503,18 +503,18 @@ async function AssetPage() {
         extractPrice("ALGO")
       ),
     },
-    {
-      name: "PEPE",
-      short: "PEPE",
-      image: "/pepe.png",
-      price: extractPrice("PEPE"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.PEPE,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.PEPE as number,
-        extractPrice("PEPE")
-      ),
-    },
+    // {
+    //   name: "PEPE",
+    //   short: "PEPE",
+    //   image: "/pepe.png",
+    //   price: extractPrice("PEPE"),
+    //   changePercent: 0.00089,
+    //   amount: userInfo?.balance.PEPE,
+    //   priceAmount: getPriceAmounts(
+    //     userInfo?.balance.PEPE as number,
+    //     extractPrice("PEPE")
+    //   ),
+    // },
     {
       name: "SOLANA",
       short: "SOL",
@@ -525,6 +525,30 @@ async function AssetPage() {
       priceAmount: getPriceAmounts(
         userInfo?.balance.SOL as number,
         extractPrice("SOL")
+      ),
+    },
+    {
+      name: "XDC",
+      short: "XDC",
+      image: "/Luna.png",
+      price: extractPrice("XDC"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.SOL,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.SOL as number,
+        extractPrice("XDC")
+      ),
+    },
+    {
+      name: "LUNA",
+      short: "Luna",
+      image: "/Luna.png",
+      price: extractPrice("Luna"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.SOL,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.SOL as number,
+        extractPrice("Luna")
       ),
     },
   ];

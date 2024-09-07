@@ -17,7 +17,8 @@ export default async function Short({ params }: { params: { short: string } }) {
   let price = 0;
   const userInfo = await User.findOne({
     email: Userresponce?.user?.email,
-  }).exec();
+  }).populate('history').exec()
+  console.log(userInfo.history)
 
   // try {
   //     const apiKey = '5B04AC9E-E22C-4666-9036-8CA5D880105A';
