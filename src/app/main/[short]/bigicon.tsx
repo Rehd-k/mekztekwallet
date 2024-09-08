@@ -1,5 +1,5 @@
 "use client";
-export default function BigIcon() {
+export default function BigIcon({ className }: any) {
   return (
     <svg
       width="329"
@@ -7,6 +7,7 @@ export default function BigIcon() {
       viewBox="0 0 329 228"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M329 215.054H0V215.217H329V215.054Z" fill="#EBEBEB"></path>
       <path

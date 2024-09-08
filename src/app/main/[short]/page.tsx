@@ -10,31 +10,28 @@ import { BiChevronLeft, BiMoneyWithdraw } from "react-icons/bi";
 import { BsMoonStars } from "react-icons/bs";
 import BigIcon from "./bigicon";
 import { GrGrow } from "react-icons/gr";
+import outPrices from "@/libs/prices";
+import history from "@/model/history";
 
 export default async function Short({ params }: { params: { short: string } }) {
-  const Userresponce = await getServerSession(authOptions);
+  const Userresponce = (await getServerSession(authOptions)) as any;
   await dbConnect();
-  let price = 0;
+  let priceIndex = outPrices.findIndex((res) => res.asset_id === params.short);
+  let price = outPrices[priceIndex].price_usd;
   const userInfo = await User.findOne({
     email: Userresponce?.user?.email,
-  }).populate('history').exec()
-  console.log(userInfo.history)
+  });
+  const dbhistories = await history.find({
+    user: Userresponce?.user?.id,
+  });
+  let histories: any[] = [];
 
-  // try {
-  //     const apiKey = '5B04AC9E-E22C-4666-9036-8CA5D880105A';
-  //     const baseUrl = 'https://rest.coinapi.io/v1/';
-  //     const endpointPath = 'assets';
-  //     const limit = 1
-  //     const headers = {
-  //         'X-CoinAPI-Key': apiKey
-  //     };
-  //     const responce = await axios.get(`${baseUrl}${endpointPath}?filter_asset_id=${params.short}&limit=${limit}`, {
-  //         headers
-  //     })
-  //     price = responce.data[0].price_usd
-  // } catch (err: any) {
-  //     console.log(err)
-  // }
+  dbhistories.map((res) => {
+    if (res.coin === params.short) {
+      histories.push(res);
+    }
+  });
+
   return (
     <div>
       <div className="bg-gray-800 flex-col justify-center items-center pb-32">
@@ -108,7 +105,7 @@ export default async function Short({ params }: { params: { short: string } }) {
               className="text-white cursor-pointer"
             >
               <div className="md:w-10 md:h-10 w-8 h-8 mx-auto rounded-full shadow-md shadow-black flex items-center justify-center text-white">
-                <GrGrow  className="text-[12px] md:text-base text-white" />
+                <GrGrow className="text-[12px] md:text-base text-white" />
               </div>
               <p className="text-[10px] text-gray-400 mt-1 text-center">
                 Stake
@@ -118,9 +115,66 @@ export default async function Short({ params }: { params: { short: string } }) {
         </div>
       </div>
 
-      <div className="flex justify-center">
-        <BigIcon />
-      </div>
+      {histories.length > 0 ? (
+        <>
+          <div className="pt-4 text-center font-thin md:text-4xl text-2xl">
+            Transaction Histroy
+          </div>
+
+          <div className="flex justify-center md:w-2/3 w-full mt-5 mx-auto px-2">
+            <table className="min-w-full text-sm text-gray-400 rounded">
+              <thead className="bg-gray-800 text-xs uppercase font-medium">
+                <tr>
+                  <th></th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left tracking-wider"
+                  >
+                    Coin
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left tracking-wider"
+                  >
+                    Amount
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left tracking-wider"
+                  >
+                    Date
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="">
+                {histories.map((res, index) => {
+                  return (
+                    <tr
+                      className={`${
+                        res.direction === "in" ? "bg-green-800" : "bg-red-800"
+                      }`}
+                      key={index}
+                    >
+                      <td className="pl-4">{index + 1}</td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        {res.coin}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        {res.amount}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        {new Date(res.createdOn).toLocaleDateString()}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ) : (
+        <BigIcon className="mx-auto mt-4" />
+      )}
     </div>
   );
 }
