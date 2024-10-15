@@ -79,9 +79,21 @@ const UserSchema = new mongoose.Schema({
       default: 0,
     },
     XDC: {
-        type: Number,
-        default: 0,
-      }
+      type: Number,
+      default: 0,
+    },
+    LUNC: {
+      type: Number,
+      default: 0,
+    },
+    SUI: {
+      type: Number,
+      default: 0,
+    },
+    HBAR: {
+      type: Number,
+      default: 0,
+    },
   },
   history: [
     {
