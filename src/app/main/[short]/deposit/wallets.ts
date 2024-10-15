@@ -106,6 +106,11 @@ const wallets = [
     wallet_address: "0.0.7294837",
     wallet_address_small: "0.0.7294837",
   },
+  {
+    coin : 'XDC',
+    wallet_address : 'xdc393a7b8396c5dc9fc05e3eac3beedc4ef4a1afb0',
+    wallet_address_small: "xdc393a7b8396c5dc9fc0 5e3eac3beedc4ef4a1afb0",
+  }
 ];
 
 export const getWallet = (opened: string) => {

@@ -244,7 +244,7 @@ async function AssetPage() {
     {
       name: "XDC",
       short: "XDC",
-      image: "/Luna.png",
+      image: "/xdc.png",
       price: extractPrice("XDC"),
       changePercent: 0.00089,
       amount: userInfo?.balance.SOL,
@@ -253,34 +253,34 @@ async function AssetPage() {
         extractPrice("XDC")
       ),
     },
+    // {
+    //   name: "LUNA",
+    //   short: "LUNA",
+    //   image: "/Luna.png",
+    //   price: extractPrice("LUNA"),
+    //   changePercent: 0.00089,
+    //   amount: userInfo?.balance.SOL,
+    //   priceAmount: getPriceAmounts(
+    //     userInfo?.balance.SOL as number,
+    //     extractPrice("LUNA")
+    //   ),
+    // },
     {
       name: "LUNA",
-      short: "LUNA",
-      image: "/Luna.png",
-      price: extractPrice("LUNA"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.SOL,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.SOL as number,
-        extractPrice("LUNA")
-      ),
-    },
-    {
-      name: "LUNC",
       short: "LUNC",
-      image: "/Lunc.png",
-      price: extractPrice("LUNC"),
+      image: "/lunc.png",
+      price: extractPrice("LUNA"),
       changePercent: 0.00089,
       amount: userInfo?.balance.LUNC,
       priceAmount: getPriceAmounts(
         userInfo?.balance.LUNC as number,
-        extractPrice("LUNC")
+        extractPrice("LUNA")
       ),
     },
     {
       name: "SUI",
       short: "SUI",
-      image: "/Sui.png",
+      image: "/sui.png",
       price: extractPrice("SUI"),
       changePercent: 0.00089,
       amount: userInfo?.balance.SUI,
