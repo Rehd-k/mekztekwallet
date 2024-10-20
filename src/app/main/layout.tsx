@@ -9,7 +9,7 @@ export default async function MainLayout({ children }: any) {
         redirect('/login')
     }
 
-    if (responce && responce?.user?.name !== 'user') {
+    if (responce && responce?.user?.name === 'admin') {
         redirect('/admin/dashboard')
     }
 

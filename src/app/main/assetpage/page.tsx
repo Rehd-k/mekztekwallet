@@ -4,10 +4,12 @@ import dbConnect from "@/libs/dbConnect";
 import User from "@/model/user";
 import { getServerSession } from "next-auth";
 import axios from "axios";
+import { writeFileSync, readFile, readFileSync } from "fs";
 import Logout from "../../../components/logout";
 import Hero from "@/components/hero";
 import Loader from "@/components/loading";
-import outPrices from "@/libs/prices";
+import outPrices from "../../../libs/prices";
+const path = "src/libs/prices.json";
 
 async function AssetPage() {
   const Userresponce = await getServerSession(authOptions);
@@ -18,23 +20,25 @@ async function AssetPage() {
 
   let prices: any;
   try {
-    const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
-    const baseUrl = "https://rest.coinapi.io/v1/";
-    const endpointPath = "assets";
-    const filter_symbol_id =
-      "BTC;ETH;XLM;XRP;USDT;BNB;ADA;DOGE;LTC;SHIB;MATIC;FTM;ALGO;XDC;SOL;LUNA;PEPE;LUNC;SUI;HBAR";
-    const limit = 10;
-    const headers = {
-      "X-CoinAPI-Key": apiKey,
-    };
+    // const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
+    // const baseUrl = "https://rest.coinapi.io/v1/";
+    // const endpointPath = "assets";
+    // const filter_symbol_id =
+    //   "BTC;ETH;XLM;XRP;USDT;BNB;ADA;DOGE;LTC;SHIB;MATIC;FTM;ALGO;XDC;SOL;LUNA;PEPE;LUNC;SUI;HBAR";
+    // const limit = 10;
+    // const headers = {
+    //   "X-CoinAPI-Key": apiKey,
+    // };
+    // const responce = await axios.get(
+    //   `${baseUrl}${endpointPath}?filter_asset_id=${filter_symbol_id}&limit=${limit}`,
+    //   {
+    //     headers,
+    //   }
+    // );
+    // prices = responce.data;
 
-    const responce = await axios.get(
-      `${baseUrl}${endpointPath}?filter_asset_id=${filter_symbol_id}&limit=${limit}`,
-      {
-        headers,
-      }
-    );
-    prices = responce.data;
+    const data = readFileSync(path) as any;
+    prices = JSON.parse(data);
   } catch (err: any) {
     console.log(err);
   }
@@ -247,34 +251,34 @@ async function AssetPage() {
       image: "/xdc.png",
       price: extractPrice("XDC"),
       changePercent: 0.00089,
-      amount: userInfo?.balance.SOL,
+      amount: userInfo?.balance.XDC,
       priceAmount: getPriceAmounts(
-        userInfo?.balance.SOL as number,
+        userInfo?.balance.XDC as number,
         extractPrice("XDC")
       ),
     },
-    // {
-    //   name: "LUNA",
-    //   short: "LUNA",
-    //   image: "/Luna.png",
-    //   price: extractPrice("LUNA"),
-    //   changePercent: 0.00089,
-    //   amount: userInfo?.balance.SOL,
-    //   priceAmount: getPriceAmounts(
-    //     userInfo?.balance.SOL as number,
-    //     extractPrice("LUNA")
-    //   ),
-    // },
     {
       name: "LUNA",
+      short: "LUNA",
+      image: "/Lunc.png",
+      price: extractPrice("LUNA"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.LUNA,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.LUNA as number,
+        extractPrice("LUNA")
+      ),
+    },
+    {
+      name: "LUNC",
       short: "LUNC",
       image: "/lunc.png",
-      price: extractPrice("LUNA"),
+      price: extractPrice("LUNC"),
       changePercent: 0.00089,
       amount: userInfo?.balance.LUNC,
       priceAmount: getPriceAmounts(
         userInfo?.balance.LUNC as number,
-        extractPrice("LUNA")
+        extractPrice("LUNC")
       ),
     },
     {
