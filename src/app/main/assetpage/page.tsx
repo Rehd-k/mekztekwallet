@@ -4,12 +4,10 @@ import dbConnect from "@/libs/dbConnect";
 import User from "@/model/user";
 import { getServerSession } from "next-auth";
 import axios from "axios";
-import { writeFileSync, readFile, readFileSync } from "fs";
 import Logout from "../../../components/logout";
 import Hero from "@/components/hero";
 import Loader from "@/components/loading";
 import outPrices from "../../../libs/prices";
-const path = "src/libs/prices.json";
 
 async function AssetPage() {
   const Userresponce = await getServerSession(authOptions);
@@ -37,8 +35,8 @@ async function AssetPage() {
     // );
     // prices = responce.data;
 
-    const data = readFileSync(path) as any;
-    prices = JSON.parse(data);
+    
+    prices = outPrices;
   } catch (err: any) {
     console.log(err);
   }

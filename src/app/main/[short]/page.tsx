@@ -12,8 +12,6 @@ import BigIcon from "./bigicon";
 import { GrGrow } from "react-icons/gr";
 import outPrices from "@/libs/prices";
 import history from "@/model/history";
-import { readFileSync } from "fs";
-const path = "src/libs/prices.json";
 
 export default async function Short({ params }: { params: { short: string } }) {
   const Userresponce = (await getServerSession(authOptions)) as any;
@@ -35,10 +33,12 @@ export default async function Short({ params }: { params: { short: string } }) {
     //   }
     // );
     // price = responce.data[0].price_usd;
-    const data = readFileSync(path) as any;
-    let prices = JSON.parse(data);
+ 
+    let prices = outPrices
 
-    let priceIndex = prices.findIndex((res: { asset_id: string; }) => res.asset_id === params.short);
+    let priceIndex = prices.findIndex(
+      (res: { asset_id: string }) => res.asset_id === params.short
+    );
     price = prices[priceIndex].price_usd;
   } catch (err: any) {
     console.log(err);
