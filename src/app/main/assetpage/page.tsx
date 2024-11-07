@@ -18,25 +18,23 @@ async function AssetPage() {
 
   let prices: any;
   try {
-    // const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
-    // const baseUrl = "https://rest.coinapi.io/v1/";
-    // const endpointPath = "assets";
-    // const filter_symbol_id =
-    //   "BTC;ETH;XLM;XRP;USDT;BNB;ADA;DOGE;LTC;SHIB;MATIC;FTM;ALGO;XDC;SOL;LUNA;PEPE;LUNC;SUI;HBAR";
-    // const limit = 10;
-    // const headers = {
-    //   "X-CoinAPI-Key": apiKey,
-    // };
-    // const responce = await axios.get(
-    //   `${baseUrl}${endpointPath}?filter_asset_id=${filter_symbol_id}&limit=${limit}`,
-    //   {
-    //     headers,
-    //   }
-    // );
-    // prices = responce.data;
+    const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
+    const baseUrl = "https://rest.coinapi.io/v1/";
+    const endpointPath = "assets";
+    const filter_symbol_id = "BTC;XLM;XRP;DOGE;SHIB;PEPE;LUNC;SUI;HBAR";
+    const limit = 10;
+    const headers = {
+      "X-CoinAPI-Key": apiKey,
+    };
+    const responce = await axios.get(
+      `${baseUrl}${endpointPath}?filter_asset_id=${filter_symbol_id}&limit=${limit}`,
+      {
+        headers,
+      }
+    );
+    prices = responce.data;
 
-    
-    prices = outPrices;
+    // prices = outPrices;
   } catch (err: any) {
     console.log(err);
   }
@@ -74,18 +72,7 @@ async function AssetPage() {
         extractPrice("BTC")
       ),
     },
-    {
-      name: "Etherium",
-      short: "ETH",
-      image: "/eth.png",
-      price: extractPrice("ETH"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.ETH,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.ETH as number,
-        extractPrice("ETH")
-      ),
-    },
+
     {
       name: "XLM",
       short: "XLM",
@@ -111,42 +98,6 @@ async function AssetPage() {
       ),
     },
     {
-      name: "USDT",
-      short: "TRC",
-      image: "/usdt.png",
-      price: extractPrice("USDT"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.USDT,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.USDT as number,
-        extractPrice("USDT")
-      ),
-    },
-    {
-      name: "Binance Coin",
-      short: "BNB",
-      image: "/bnb.png",
-      price: extractPrice("BNB"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.BNB,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.BNB as number,
-        extractPrice("BNB")
-      ),
-    },
-    {
-      name: "Cardano",
-      short: "ADA",
-      image: "/ada.png",
-      price: extractPrice("ADA"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.ADA,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.ADA as number,
-        extractPrice("ADA")
-      ),
-    },
-    {
       name: "Doge Coin",
       short: "DOGE",
       image: "/doge.png",
@@ -156,18 +107,6 @@ async function AssetPage() {
       priceAmount: getPriceAmounts(
         userInfo?.balance.DOGE as number,
         extractPrice("DOGE")
-      ),
-    },
-    {
-      name: "Litecoin",
-      short: "LTC",
-      image: "/ltc.png",
-      price: extractPrice("LTC"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.LTC,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.LTC as number,
-        extractPrice("LTC")
       ),
     },
     {
@@ -182,43 +121,8 @@ async function AssetPage() {
         extractPrice("SHIB")
       ),
     },
-    {
-      name: "POLYGON",
-      short: "MATIC",
-      image: "/matic.png",
-      price: extractPrice("MATIC"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.MATIC,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.MATIC as number,
-        extractPrice("MATIC")
-      ),
-    },
-    {
-      name: "FANTOM",
-      short: "FTM",
-      image: "/ftm.png",
-      price: extractPrice("FTM"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.FTM,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.FTM as number,
-        extractPrice("FTM")
-      ),
-    },
+ 
 
-    {
-      name: "ALGORAND",
-      short: "ALGO",
-      image: "/algo.png",
-      price: extractPrice("ALGO"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.ALGO,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.ALGO as number,
-        extractPrice("ALGO")
-      ),
-    },
     {
       name: "PEPE",
       short: "PEPE",
@@ -231,42 +135,8 @@ async function AssetPage() {
         extractPrice("PEPE")
       ),
     },
-    {
-      name: "SOLANA",
-      short: "SOL",
-      image: "/solena.png",
-      price: extractPrice("SOL"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.SOL,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.SOL as number,
-        extractPrice("SOL")
-      ),
-    },
-    {
-      name: "XDC",
-      short: "XDC",
-      image: "/xdc.png",
-      price: extractPrice("XDC"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.XDC,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.XDC as number,
-        extractPrice("XDC")
-      ),
-    },
-    {
-      name: "LUNA",
-      short: "LUNA",
-      image: "/Lunc.png",
-      price: extractPrice("LUNA"),
-      changePercent: 0.00089,
-      amount: userInfo?.balance.LUNA,
-      priceAmount: getPriceAmounts(
-        userInfo?.balance.LUNA as number,
-        extractPrice("LUNA")
-      ),
-    },
+   
+
     {
       name: "LUNC",
       short: "LUNC",

@@ -19,27 +19,28 @@ export default async function Short({ params }: { params: { short: string } }) {
 
   let price: any;
   try {
-    // const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
-    // const baseUrl = "https://rest.coinapi.io/v1/";
-    // const endpointPath = "assets";
-    // const limit = 1;
-    // const headers = {
-    //   "X-CoinAPI-Key": apiKey,
-    // };
-    // const responce = await axios.get(
-    //   `${baseUrl}${endpointPath}?filter_asset_id=${params.short}&limit=${limit}`,
-    //   {
-    //     headers,
-    //   }
-    // );
-    // price = responce.data[0].price_usd;
- 
-    let prices = outPrices
-
-    let priceIndex = prices.findIndex(
-      (res: { asset_id: string }) => res.asset_id === params.short
+    const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
+    const baseUrl = "https://rest.coinapi.io/v1/";
+    const endpointPath = "assets";
+    const limit = 1;
+    const headers = {
+      "X-CoinAPI-Key": apiKey,
+    };
+    const responce = await axios.get(
+      `${baseUrl}${endpointPath}?filter_asset_id=${params.short}&limit=${limit}`,
+      {
+        headers,
+      }
     );
-    price = prices[priceIndex].price_usd;
+    price = responce.data[0].price_usd;
+    
+ 
+    // let prices = outPrices
+
+    // let priceIndex = prices.findIndex(
+    //   (res: { asset_id: string }) => res.asset_id === params.short
+    // );
+    // price = prices[priceIndex].price_usd;
   } catch (err: any) {
     console.log(err);
   }
