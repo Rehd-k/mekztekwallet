@@ -18,7 +18,7 @@ async function AssetPage() {
 
   let prices: any;
   try {
-    const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
+    const apiKey = "96b5b264-bf2b-4187-8ead-667aa375e8e6";
     const baseUrl = "https://rest.coinapi.io/v1/";
     const endpointPath = "assets";
     const filter_symbol_id = "BTC;XLM;XRP;DOGE;SHIB;PEPE;LUNC;SUI;HBAR";
