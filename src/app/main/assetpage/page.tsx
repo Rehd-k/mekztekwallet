@@ -18,6 +18,8 @@ async function AssetPage() {
 
   let prices: any;
   try {
+    // 39e7cd6f-038f-4557-bcfd-655c30c16238
+    // const apiKey = "5B04AC9E-E22C-4666-9036-8CA5D880105A";
     const apiKey = "96b5b264-bf2b-4187-8ead-667aa375e8e6";
     const baseUrl = "https://rest.coinapi.io/v1/";
     const endpointPath = "assets";
