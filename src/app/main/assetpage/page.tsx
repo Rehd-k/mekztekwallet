@@ -8,6 +8,7 @@ import Logout from "../../../components/logout";
 import Hero from "@/components/hero";
 import Loader from "@/components/loading";
 import outPrices from "../../../libs/prices";
+import HomePage from "./HomePageComponent";
 
 async function AssetPage() {
   const Userresponce = await getServerSession(authOptions);
