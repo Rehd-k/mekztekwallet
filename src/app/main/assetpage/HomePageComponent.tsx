@@ -5,6 +5,7 @@ import Loader from '@/components/loading';
 import Logout from '@/components/logout';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import FixedPrices from '@/libs/prices';
 
 const HomePage: React.FC<any> = ({ userInfo }) => {
   const [loading, isLoading] = useState(true);
@@ -46,6 +47,18 @@ const HomePage: React.FC<any> = ({ userInfo }) => {
     let price = 0;
     if (prices.length > 0) {
       prices.map((e: { asset_id: any; price_usd: number }) => {
+        if (e.asset_id === coin) {
+          price = e.price_usd as number;
+        }
+      });
+    }
+    return price;
+  }
+
+  function extractFixedPrice(coin: any) {
+    let price = 0;
+    if (FixedPrices.length > 0) {
+      FixedPrices.map((e: { asset_id: any; price_usd: number }) => {
         if (e.asset_id === coin) {
           price = e.price_usd as number;
         }
@@ -188,6 +201,66 @@ const HomePage: React.FC<any> = ({ userInfo }) => {
       priceAmount: getPriceAmounts(
         userInfo?.balance.HBAR as number,
         extractPrice("HBAR")
+      ),
+    },
+    {
+      name: "Solena",
+      short: "SOL",
+      image: "/sol.png",
+      price: extractFixedPrice("SOL"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.SOL,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.SOL as number,
+        extractFixedPrice("SOL")
+      ),
+    },
+    {
+      name: "Cardano",
+      short: "ADA",
+      image: "/ada.png",
+      price: extractFixedPrice("ADA"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.ADA,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.ADA as number,
+        extractFixedPrice("ADA")
+      ),
+    },
+    {
+      name: "BNB",
+      short: "BNB",
+      image: "/bnb.png",
+      price: extractFixedPrice("BNB"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.BNB,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.BNB as number,
+        extractFixedPrice("BNB")
+      ),
+    },
+    {
+      name: "FTM",
+      short: "FTM",
+      image: "/ftm.png",
+      price: extractFixedPrice("FTM"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.FTM,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.FTM as number,
+        extractFixedPrice("FTM")
+      ),
+    },
+    {
+      name: "MATIC",
+      short: "MATIC",
+      image: "/matic.png",
+      price: extractFixedPrice("MATIC"),
+      changePercent: 0.00089,
+      amount: userInfo?.balance.MATIC,
+      priceAmount: getPriceAmounts(
+        userInfo?.balance.MATIC as number,
+        extractFixedPrice("MATIC")
       ),
     },
   ];
