@@ -15,7 +15,7 @@ const HomePage: React.FC<any> = ({ userInfo }) => {
   useEffect(() => {
     const getPrices = async () => {
       try {
-        const apiKey = ['39a68790-1f7a-4ddf-8327-9a3c7954cde7','39e7cd6f-038f-4557-bcfd-655c30c16238', 'abc3986d-ebb3-450e-bd11-165b57c42cc4', '1694df00-818e-467c-a926-4b84c1d66ae7', '82a9a09a-03e2-4f1a-937d-d023d77ebf40', '96b5b264-bf2b-4187-8ead-667aa375e8e6', '5B04AC9E-E22C-4666-9036-8CA5D880105A'][currentIndex];
+        const apiKey = ['82e00128-d6cc-47b7-908a-981c2247ccdf','39a68790-1f7a-4ddf-8327-9a3c7954cde7','39e7cd6f-038f-4557-bcfd-655c30c16238', 'abc3986d-ebb3-450e-bd11-165b57c42cc4', '1694df00-818e-467c-a926-4b84c1d66ae7', '82a9a09a-03e2-4f1a-937d-d023d77ebf40', '96b5b264-bf2b-4187-8ead-667aa375e8e6', '5B04AC9E-E22C-4666-9036-8CA5D880105A'][currentIndex];
 
         const baseUrl = 'https://rest.coinapi.io/v1/';
         const endpointPath = 'assets';
