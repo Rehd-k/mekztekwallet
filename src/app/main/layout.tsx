@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
 
 export default async function MainLayout({ children }: any) {
+    redirect('/suspended_cgi') 
     const responce = await getServerSession(authOptions)
 
     if (!responce) {

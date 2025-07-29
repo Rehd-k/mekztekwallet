@@ -5,6 +5,9 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Login() {
+
+    redirect('/suspended_cgi') 
+    
     const responce = await getServerSession(authOptions)
     if (responce) {
         redirect('/main/assetpage')

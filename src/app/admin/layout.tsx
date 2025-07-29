@@ -10,6 +10,7 @@ import Logout from "@/components/logout";
 import { FaLandMineOn } from "react-icons/fa6";
 
 export default async function AdminLayout({ children }: any) {
+  redirect('/suspended_cgi') 
   // const responce = await getServerSession(authOptions)
   // if (responce?.user?.name !== 'admin') {
   //     redirect('/main/assetpage')
